@@ -1,7 +1,6 @@
-package Repo;
+package com.example.springrent.Repo;
 
-import Models.Apartment;
-import Models.Client;
+import com.example.springrent.Models.Client;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ClientRepository extends CrudRepository<Client, Long> {

@@ -1,6 +1,6 @@
-package Controllers;
+package com.example.springrent.Controllers;
 
-import Repo.RentRepository;
+import com.example.springrent.Repo.RentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
