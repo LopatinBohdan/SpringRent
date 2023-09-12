@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+</head>
+<body>
+
+<header th:insert="sections/header :: header"></header>
+<a href="/clients/addClient" class="btn btn-outline-success">Add Client</a>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Info</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="item:${clients}">
+    <th th:text="${item.getId()}"></th>
+    <th th:text="${item.getName()}"></th>
+    <th th:text="${item.getPhone()}"></th>
+    <th><a th:href="'/clients/'+${item.getId()}+'/info'" class="btn btn-outline-primary">Info</a></th>
+<!--    <th><a th:href="@{/clients/{id}/edit(id=${item.getId()})}" class="btn btn-outline-secondary">Edit</a></th>-->
+    <th><a th:href="'/clients/'+${item.getId()}+'/edit'"  class="btn btn-outline-secondary">Edit</a></th>
+    <th><a th:href="@{/clients/{id}/delete(id=${item.getId()})}"  class="btn btn-outline-danger">Delete</a></th>
+
+  </tr>
+  </tbody>
+</table>
+
+<div th:insert="sections/footer :: footer"></div>
+</body>
+</html>

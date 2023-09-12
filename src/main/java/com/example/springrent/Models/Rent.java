@@ -1,6 +1,7 @@
 package com.example.springrent.Models;
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "rents")
@@ -9,21 +10,21 @@ public class Rent {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private LocalDate start;
-    private LocalDate end;
+    private LocalDate finish;
 
     @ManyToOne
-    @JoinColumn(name = "apartment_id", nullable = false,insertable = false,updatable = false)
+    @JoinColumn(name = "apartment_id", nullable = false)
     private Apartment apartment;
 
     @ManyToOne
-    @JoinColumn(name = "client_id",nullable = false,insertable = false,updatable = false)
+    @JoinColumn(name = "client_id",nullable = false)
     private Client client;
 
     public Rent(){}
 
-    public Rent(LocalDate start, LocalDate end, Apartment apartment, Client client) {
+    public Rent(LocalDate start, LocalDate finish, Apartment apartment, Client client) {
         this.start = start;
-        this.end = end;
+        this.finish = finish;
         this.apartment = apartment;
         this.client = client;
     }
@@ -44,12 +45,12 @@ public class Rent {
         this.start = start;
     }
 
-    public LocalDate getEnd() {
-        return end;
+    public LocalDate getFinish() {
+        return finish;
     }
 
-    public void setEnd(LocalDate end) {
-        this.end = end;
+    public void setFinish(LocalDate finish) {
+        this.finish = finish;
     }
 
     public Apartment getApartment() {

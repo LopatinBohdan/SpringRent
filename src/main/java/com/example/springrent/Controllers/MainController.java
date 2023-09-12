@@ -9,14 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-    @Autowired
-    public ApartmentRepository repository;
-    @GetMapping("/")
-    public String home(Model model){
-        Iterable<Apartment> apartmentList=repository.findAll();
-        model.addAttribute("apartment", apartmentList);
-        return "index";
-    }
+
 
 
 }

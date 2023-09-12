@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="sections/header::header"></header>
+<a href="/apartments/addApartment" class="btn btn-outline-success">Add apartment</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Rooms</th>
+        <th>Price</th>
+        <th>Info</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item:${apartments}">
+        <th th:text="${item.getId()}"></th>
+        <th th:text="${item.getTitle()}"></th>
+        <th th:text="${item.getRoomsAmount()}"></th>
+        <th th:text="${item.getPrice()}"></th>
+        <th><a th:href="'/apartments/'+${item.getId()}+'/info'" class="btn btn-outline-primary">Info</a></th>
+        <th><a th:href="'/apartments/'+${item.getId()}+'/edit'" class="btn btn-outline-secondary">Edit</a></th>
+        <th><a th:href="@{/{id}/delete(id=${item.getId()})}" class="btn btn-outline-danger">Delete</a></th>
+    </tr>
+    </tbody>
+</table>
+
+<div th:insert="sections/footer::footer"></div>
+</body>
+</html>

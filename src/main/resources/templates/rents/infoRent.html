@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <style>
+        .info{
+            margin-left: 5%;
+        }
+    </style>
+</head>
+<body>
+<header th:insert="sections/header :: header"></header>
+
+<div class="info">
+    <p th:text="'ID: '+ ${rent.getId()}"></p>
+    <p th:text="'Start date: '+ ${rent.getStart()}"></p>
+    <p th:text="'Finish date: '+${rent.getFinish()}"></p>
+    <p th:text="'Apartment: '+${rent.getApartment().getTitle()}"></p>
+    <p th:text="'Client: '+ ${rent.getClient().getName()}"></p>
+</div>
+<button class="btn btn-link"><a href="/rents/rents">Back</a></button>
+
+<div th:insert="sections/footer :: footer"></div>
+</body>
+</html>

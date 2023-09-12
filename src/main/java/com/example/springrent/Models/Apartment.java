@@ -16,7 +16,7 @@ public class Apartment {
     private String address="";
     private float price;
     @ManyToOne
-    @JoinColumn(name = "landlord_id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "landlord_id", nullable = false, insertable = true, updatable = true)
     private Landlord landlord;
     @OneToMany(mappedBy = "apartment")
     private List<Rent> rents;

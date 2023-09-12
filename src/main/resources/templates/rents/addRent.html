@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <style>
+        form{
+            margin-left: 5%;
+        }
+    </style>
+</head>
+<body>
+<header th:insert="sections/header :: header"></header>
+
+<form action="/rents/addRent" method="post">
+    <label >Start rent</label><br>
+    <input type="date" name="start" ><br>
+    <label >Finish rent</label><br>
+    <input type="date" name="finish" ><br>
+    <select name="apartmentId" >
+        <option th:each="item:${apartments}" th:value="${item.getId()}" th:text="${item.getTitle()}"></option>
+    </select>
+    <select name="clientId" >
+        <option th:each="item:${clients}" th:value="${item.getId()}" th:text="${item.getName()}"></option>
+    </select>
+    <input type="submit" value="Add" class="btn btn-success">
+</form>
+
+<div th:insert="sections/footer :: footer"></div>
+</body>
+</html>

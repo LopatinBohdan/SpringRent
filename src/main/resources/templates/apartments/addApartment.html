@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+  <style>
+    form{
+      margin-left: 5%;
+    }
+  </style>
+</head>
+<body>
+<header th:insert="sections/header :: header"></header>
+
+<form action="/apartments/addApartment" method="post">
+  <input type="text" name="title" placeholder="title"><br>
+  <input type="number" name="roomsAmount" placeholder="rooms"><br>
+  <input type="text" name="address" placeholder="address"><br>
+  <input type="number" name="price" placeholder="price"><br>
+  <select name="landlordId" >
+    <option th:each="item:${landlords}" th:value="${item.getId()}" th:text="${item.getName()}"></option>
+  </select>
+  <input type="submit" value="Add" class="btn btn-success">
+</form>
+
+<div th:insert="sections/footer :: footer"></div>
+</body>
+</html>

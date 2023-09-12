@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+  <style>
+    form{
+      margin-left: 5%;
+    }
+  </style>
+</head>
+<body>
+<header th:insert="sections/header :: header"></header>
+
+<form th:action="'/clients/'+${client.getId()}+'/edit'" method="post">
+  <input type="text" name="name" th:value="${client.getName()}"><br>
+  <input type="text" name="phone" th:value="${client.getPhone()}"><br>
+  <input type="number" name="roomAmount" th:value="${client.getRoomAmount()}"><br>
+  <input type="submit" value="Edit" class="btn btn-success">
+</form>
+
+<div th:insert="sections/footer :: footer"></div>
+</body>
+</html>

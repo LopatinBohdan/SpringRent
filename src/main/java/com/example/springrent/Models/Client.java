@@ -13,7 +13,7 @@ public class Client {
     private Long id;
     private String name="";
     private String phone="";
-    private int roomsAmount;
+    private int roomAmount;
 
     @OneToMany(mappedBy = "client")
     private List<Rent> rents;
@@ -28,10 +28,10 @@ public class Client {
         this.rents = rents;
     }
 
-    public Client(String name, String phone, int roomsAmount) {
+    public Client(String name, String phone, int roomAmount) {
         this.name = name;
         this.phone = phone;
-        this.roomsAmount = roomsAmount;
+        this.roomAmount = roomAmount;
     }
 
 
@@ -59,11 +59,11 @@ public class Client {
         this.phone = phone;
     }
 
-    public int getRoomsAmount() {
-        return roomsAmount;
+    public int getRoomAmount() {
+        return roomAmount;
     }
 
-    public void setRoomsAmount(int roomsAmount) {
-        this.roomsAmount = roomsAmount;
+    public void setRoomAmount(int roomAmount) {
+        this.roomAmount = roomAmount;
     }
 }

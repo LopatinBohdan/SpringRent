@@ -17,10 +17,9 @@ public class Landlord {
 
     public Landlord(){}
 
-    public Landlord(String name, String phone, List<Apartment> apartments) {
+    public Landlord(String name, String phone) {
         this.name = name;
         this.phone = phone;
-        this.apartments = apartments;
     }
 
     public Long getId() {

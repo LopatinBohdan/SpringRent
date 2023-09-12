@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+  <style>
+    .info{
+      margin-left: 5%;
+    }
+  </style>
+</head>
+<body>
+<header th:insert="sections/header :: header"></header>
+
+<div class="info">
+  <p th:text="'ID: '+ ${client.getId()}"></p>
+  <p th:text="'Name: '+ ${client.getName()}"></p>
+  <p th:text="'Phone: '+${client.getPhone()}"></p>
+  <p th:text="'Rooms: '+${client.getRoomAmount()}"></p>
+</div>
+<button class="btn btn-link"><a href="/clients/clients">Back</a></button>
+
+<div th:insert="sections/footer :: footer"></div>
+</body>
+</html>
